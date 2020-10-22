@@ -1,6 +1,7 @@
 package com.example.javaspring.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
@@ -14,7 +15,7 @@ public class Book {
     private String title;
 
     @ManyToOne
-    //@JsonBackReference
+    @JsonManagedReference
     private Author author;
 
 

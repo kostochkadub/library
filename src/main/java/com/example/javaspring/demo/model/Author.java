@@ -1,6 +1,6 @@
 package com.example.javaspring.demo.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,7 +15,7 @@ public class Author {
     private String name;
 
    @OneToMany
-   //@JsonManagedReference
+   @JsonBackReference
    List<Book> books;
 
     public Author() {

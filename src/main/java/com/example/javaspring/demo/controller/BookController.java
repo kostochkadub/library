@@ -6,6 +6,7 @@ import com.example.javaspring.demo.model.Book;
 import com.example.javaspring.demo.repository.AuthorRepository;
 import com.example.javaspring.demo.repository.BookRepository;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,14 +27,18 @@ public class BookController {
 
         Book book = new Book();
         book.setTitle("book1");
+        Book book2 = new Book();
+        book2.setTitle("book2");
 
         Author author = new Author();
         author.setName("Artur");
         authorRepository.save(author);
 
         book.setAuthor(author);
+        book2.setAuthor(author);
 
         Book saveBook = bookRepository.save(book);
+        bookRepository.save(book2);
 
         return saveBook;
     }
@@ -41,6 +46,12 @@ public class BookController {
     @GetMapping("/book")
     public List<Book> getAll(){
         return bookRepository.findAll();
+
+    }
+
+    @GetMapping("/book/author/{authorId}")
+    public List<Book> getBooksByAuthorId(@PathVariable Integer authorId){
+        return bookRepository.findBooksByAuthorId(authorId);
 
     }
 }
