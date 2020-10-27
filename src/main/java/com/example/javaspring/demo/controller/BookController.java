@@ -49,9 +49,8 @@ public class BookController {
 
     }
 
-    @GetMapping("/book/author/{authorId}")
-    public List<Book> getBooksByAuthorId(@PathVariable Integer authorId){
-        return bookRepository.findBooksByAuthorId(authorId);
-
-    }
+  //  @GetMapping("/book/author/{authorId}")
+ //   public List<Book> getBooksByAuthorId(@PathVariable Integer authorId){
+  //      return bookRepository.findBooksByAuthorId(authorId);
+ //   }
 }

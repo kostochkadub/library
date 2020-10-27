@@ -7,24 +7,19 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Book {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String title;
-
-    @ManyToOne
-    @JsonManagedReference
-    private Author author;
+    private String name;
 
     @OneToMany
     @JsonBackReference
     List<Library> libraries;
 
-
-    public Book() {
+    public User() {
 
     }
 
@@ -36,19 +31,19 @@ public class Book {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Author getAuthor() {
-        return author;
+    public List<Library> getLibraries() {
+        return libraries;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setLibraries(List<Library> libraries) {
+        this.libraries = libraries;
     }
 }

@@ -36,9 +36,4 @@ public class AuthorController {
         return authorRepository.findAll();
 
     }
-
-    @GetMapping("/author/book/{bookId}")
-    public Author getByBookId(@PathVariable Integer bookId){
-        return authorRepository.findAuthorByBookId(bookId);
-    }
 }
